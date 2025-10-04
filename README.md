@@ -68,7 +68,7 @@ From the project's root directory, start the Streamlit application using your te
 
 The application will automatically open in your default web browser at `http://localhost:8501`.
 
-##📝 Usage
+## 📝 Usage
 - Fetch & Insert Data: Use the sidebar to select an artifact classification. Click the "Fetch & Insert Data" button to call the Harvard API and populate your local MySQL database.
 
 - View Database Tables: Select a table from the dropdown menu and click "Show Table Data" to view the raw data stored for the selected artifact classification.
@@ -89,4 +89,4 @@ Contributions are welcome! If you'd like to contribute, please follow the standa
 Please ensure your code follows the project's style and includes relevant documentation.
 
 ## 📜 License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+This project is licensed under the GPL-3.0 license. See the `LICENSE` file for more details.
