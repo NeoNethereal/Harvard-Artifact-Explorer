@@ -28,5 +28,7 @@ You need to have the following software installed:
 - Git
 
 ### Step 1: Clone the Repository
-Clone this repository to your local machine.
-```git clone https://github.com/NeoNethereal/Harvard-Artifact-Explorer.git cd Harvard-Artifact-Explorer```
+Clone this repository to your local machine:
+```git clone https://github.com/NeoNethereal/Harvard-Artifact-Explorer.git```
+Navigate to the project folder:
+```cd Harvard-Artifact-Explorer```
