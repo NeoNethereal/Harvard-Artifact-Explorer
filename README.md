@@ -7,7 +7,7 @@ This project provides an interactive, end-to-end data exploration platform using
 ## ✨ Key Features
 - ETL Pipeline: Fetches up to 12,500 artifact records from the Harvard Art Museum API, transforms the raw JSON data, and stores it in a structured MySQL database.
 
-- Database Integration: Automatically creates and populates three relational tables—artifact_metadata, artifact_media, and artifact_colors—without requiring manual SQL setup.
+- Database Integration: Automatically creates and populates three relational tables—`artifact_metadata`, `artifact_media`, and `artifact_colors`—without requiring manual SQL setup.
 
 - Dynamic Data Exploration: Through a Streamlit dashboard, users can select different artifact classifications to fetch and insert data in real-time.
 
