@@ -15,17 +15,19 @@ This project provides an interactive, end-to-end data exploration platform using
 
 - Secure Configuration: All sensitive information, such as the MySQL credentials and API keys, is managed securely using Streamlit's secrets.toml file.
 
-🚀 Getting Started
+## 🚀 Getting Started
 Follow these steps to set up and run the application on your local machine.
 
-Prerequisites
+### Prerequisites
 You need to have the following software installed:
 
-Python 3.10+
+- Python 3.10+
 
-MySQL Database (and the MySQL service running)
+- MySQL Database (and the MySQL service running)
 
-Git
+- Git
 
-Step 1: Clone the Repository
+### Step 1: Clone the Repository
 Clone this repository to your local machine.
+```git clone https://github.com/NeoNethereal/Harvard-Artifact-Explorer.git
+cd Harvard-Artifact-Explorer```
