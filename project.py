@@ -134,6 +134,7 @@ def insert_data(conn, records, table_name):
     cursor.executemany(sql, records)
     conn.commit()
     cursor.close()
+    conn.close()
 
 st.set_page_config(page_title="Harvard Artifact Explorer", layout="wide")
 
