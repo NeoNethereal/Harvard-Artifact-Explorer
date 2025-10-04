@@ -86,3 +86,32 @@ st.markdown("""
         </p>
     </div>
 """, unsafe_allow_html=True)
+
+# --- NEW UI CODE STARTS HERE ---
+
+st.markdown("""
+    <div style='text-align:center; background:linear-gradient(to right, #ffffff, #fdf5e6);
+                padding:20px; border-radius:15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);'>
+        <h1 style='color:#B22222; font-size:46px; font-family:Georgia;'>🏛 Harvard Artifact Explorer</h1>
+    </div>
+""", unsafe_allow_html=True)
+
+st.sidebar.markdown("""
+    <div style='text-align:center; padding:15px; background:linear-gradient(to bottom, #fff, #fdf5e6);
+                border-radius:12px; box-shadow: 0 3px 6px rgba(0,0,0,0.1);'>
+        <h2 style='color:#B22222; font-family:Georgia;'>🔍 Controls</h2>
+    </div>
+""", unsafe_allow_html=True)
+
+chosen_class = st.sidebar.selectbox("Choose a classification", ["Paintings", "Sculpture", "Drawings", "Fragments", "Photographs"])
+
+tab1, tab2, tab3 = st.tabs(["📥 Data Loader", "🗃️ Database Explorer", "✍️ SQL Workspace"])
+
+with tab1:
+    st.header(f"Load Data for: {chosen_class}")
+
+with tab2:
+    st.header(f"Explore Database Tables for '{chosen_class}'")
+
+with tab3:
+    st.header("📊 Query & Visualization Workspace")
