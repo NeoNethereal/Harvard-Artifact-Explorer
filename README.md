@@ -30,8 +30,8 @@ You need to have the following software installed:
 ### Step 1: Clone the Repository
 Clone this repository to your local machine:
 
-```git clone https://github.com/NeoNethereal/Harvard-Artifact-Explorer.git```
+``git clone https://github.com/NeoNethereal/Harvard-Artifact-Explorer.git``
 
 Navigate to the project folder:
 
-```cd Harvard-Artifact-Explorer```
+``cd Harvard-Artifact-Explorer``
