@@ -4,7 +4,7 @@ import streamlit as st
 from sqlalchemy import create_engine
 import mysql.connector
 
-# Copied from project.py
+# All the function definitions from before
 @st.cache_resource
 def get_engine():
     try:
@@ -19,40 +19,18 @@ def get_engine():
         return None
 
 def create_tables():
-    if engine is None:
-        return
-    conn = engine.connect()
-    try:
-        conn.execute("""
-        CREATE TABLE IF NOT EXISTS artifact_metadata (
-          id INT PRIMARY KEY, title TEXT, culture TEXT, period TEXT, century TEXT, medium TEXT,
-          dimensions TEXT, description TEXT, department TEXT, classification TEXT,
-          accessionyear INT, accessionmethod TEXT
-        );
-        """)
-        conn.execute("""
-        CREATE TABLE IF NOT EXISTS artifact_media (
-          objectid INT PRIMARY KEY, imagecount INT, mediacount INT, colorcount INT,
-          rank_value INT, datebegin INT, dateend INT,
-          CONSTRAINT fk1_id FOREIGN KEY (objectid) REFERENCES artifact_metadata(id)
-        );
-        """)
-        conn.execute("""
-        CREATE TABLE IF NOT EXISTS artifact_colors (
-          objectid INT, color TEXT, spectrum TEXT, hue TEXT, percent REAL, css3 TEXT,
-          CONSTRAINT fk2_id FOREIGN KEY (objectid) REFERENCES artifact_metadata(id)
-        );
-        """)
-    finally:
-        conn.close()
+    # This function is not being called in this test, but we keep it here
+    pass
 
 @st.cache_data
 def fetch_classifications(classi, pages=25):
     all_records = []
     url = 'https://api.harvardartmuseums.org/object'
+    # This next line is where the secrets file is used for the API
+    api_key = st.secrets.api.harvard_api_key
     for page in range(1, pages + 1):
         params = {
-            'apikey': st.secrets.api.harvard_api_key,
+            'apikey': api_key,
             'size': 100,
             'page': page,
             'classification': classi
@@ -68,27 +46,12 @@ def fetch_classifications(classi, pages=25):
     return all_records
 
 def artifact_details(all_records):
-    # ... (include the full function code here) ...
-    return artifact_metadata, artifact_media, artifact_colors
-
-def bulk_insert(table_name, columns, records):
-    # ... (include the full function code here) ...
     pass
 
+def bulk_insert(table_name, columns, records):
+    pass
 
-# Original UI Code
-st.markdown("""
-    <div style='text-align:center; background:linear-gradient(to right, #ffffff, #fdf5e6);
-                padding:20px; border-radius:15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);'>
-        <h1 style='color:#B22222; font-size:46px; font-family:Georgia;'>🏛 Harvard Artifact Explorer</h1>
-        <p style='color:#333333; font-size:20px; font-family:Trebuchet MS;'>
-            Discover the beauty of history with <b style='color:#DAA520;'>golden insights</b> into Harvard Art Museum artifacts.
-        </p>
-    </div>
-""", unsafe_allow_html=True)
-
-# --- NEW UI CODE STARTS HERE ---
-
+# --- UI CODE ---
 st.markdown("""
     <div style='text-align:center; background:linear-gradient(to right, #ffffff, #fdf5e6);
                 padding:20px; border-radius:15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);'>
@@ -109,6 +72,16 @@ tab1, tab2, tab3 = st.tabs(["📥 Data Loader", "🗃️ Database Explorer", "�
 
 with tab1:
     st.header(f"Load Data for: {chosen_class}")
+
+    # --- NEW WORKS ABOVE ---
+    if st.button(f"Fetch Data for {chosen_class}"):
+        with st.spinner("Fetching data..."):
+            records = fetch_classifications(chosen_class)
+            if records:
+                st.success(f"Successfully fetched {len(records)} records!")
+                st.dataframe(records)
+            else:
+                st.error("Failed to fetch records.")
 
 with tab2:
     st.header(f"Explore Database Tables for '{chosen_class}'")
