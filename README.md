@@ -13,7 +13,7 @@ This project provides an interactive, end-to-end data exploration platform using
 
 - Interactive Query Workspace: The app includes a ready-to-use SQL workspace with over 25 predefined queries. This allows users to analyze the collected data in real-time and explore various aspects of the art collection.
 
-- Secure Configuration: All sensitive information, such as the MySQL credentials and API keys, is managed securely using Streamlit's secrets.toml file.
+- Secure Configuration: All sensitive information, such as the MySQL credentials and API keys, is managed securely using Streamlit's `secrets.toml` file.
 
 ## 🚀 Getting Started
 Follow these steps to set up and run the application on your local machine.
