@@ -30,7 +30,7 @@ You need to have the following software installed:
 ### Step 1: Clone the Repository
 Clone this repository to your local machine:
 ```
-git clone https://github.com/NeoNethereal/Harvard-Artifact-Explorer.git`
+git clone https://github.com/NeoNethereal/Harvard-Artifact-Explorer.git
 cd Harvard-Artifact-Explorer
 ```
 
@@ -67,3 +67,26 @@ From the project's root directory, start the Streamlit application using your te
 `streamlit run project.py`
 
 The application will automatically open in your default web browser at `http://localhost:8501`.
+
+##📝 Usage
+- Fetch & Insert Data: Use the sidebar to select an artifact classification. Click the "Fetch & Insert Data" button to call the Harvard API and populate your local MySQL database.
+
+- View Database Tables: Select a table from the dropdown menu and click "Show Table Data" to view the raw data stored for the selected artifact classification.
+
+- Query & Visualization: Choose one of the pre-built queries from the dropdown list. Click "Run Query" to execute the query and see the results displayed in a table. Some queries require you to enter an ID or a department name before running.
+
+## 🤝 Contributing
+Contributions are welcome! If you'd like to contribute, please follow the standard GitHub workflow:
+
+- Fork this repository.
+
+- Create a new branch for your feature or bug fix.
+
+- Commit your changes and push them to your branch.
+
+- Open a pull request to the main branch.
+
+Please ensure your code follows the project's style and includes relevant documentation.
+
+## 📜 License
+This project is licensed under the MIT License. See the LICENSE file for more details.
