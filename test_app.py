@@ -73,7 +73,7 @@ tab1, tab2, tab3 = st.tabs(["📥 Data Loader", "🗃️ Database Explorer", "�
 with tab1:
     st.header(f"Load Data for: {chosen_class}")
 
-    # --- NEW WORKS ABOVE ---
+    # --- THIS IS THE NEW PART FOR STEP 5 ---
     if st.button(f"Fetch Data for {chosen_class}"):
         with st.spinner("Fetching data..."):
             records = fetch_classifications(chosen_class)
