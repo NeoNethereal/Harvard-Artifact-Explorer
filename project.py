@@ -9,8 +9,9 @@ st.set_page_config(page_title="Harvard Artifact Explorer", layout="wide")
 @st.cache_resource
 def get_engine():
     try:
+        # The only change is here: "mysqlconnector" is now "pymysql"
         conn_string = (
-            f"mysql+mysqlconnector://{st.secrets.database.db_user}:{st.secrets.database.db_pass}"
+            f"mysql+pymysql://{st.secrets.database.db_user}:{st.secrets.database.db_pass}"
             f"@{st.secrets.database.db_host}/{st.secrets.database.db_name}"
         )
         engine = create_engine(conn_string)
@@ -26,7 +27,6 @@ def create_tables():
         return
     conn = engine.connect()
     try:
-        # Using conn.exec_driver_sql for SQLAlchemy 2.0 compatibility
         conn.exec_driver_sql("""
         CREATE TABLE IF NOT EXISTS artifact_metadata (
           id INT PRIMARY KEY, title TEXT, culture TEXT, period TEXT, century TEXT, medium TEXT,
@@ -100,7 +100,6 @@ def bulk_insert_with_ignore(table_name, columns, records):
     if not records or engine is None:
         return
     df = pd.DataFrame(records, columns=columns)
-    # Using a method that works for MySQL to ignore duplicates
     df.to_sql(name=f'temp_{table_name}', con=engine, if_exists='replace', index=False)
     with engine.connect() as conn:
         conn.exec_driver_sql(f"""
