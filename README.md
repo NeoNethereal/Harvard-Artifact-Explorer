@@ -29,17 +29,17 @@ You need to have the following software installed:
 
 ### Step 1: Clone the Repository
 Clone this repository to your local machine:
-
-`git clone https://github.com/NeoNethereal/Harvard-Artifact-Explorer.git`
-
-Navigate to the project folder:
-
-`cd Harvard-Artifact-Explorer`
+```
+git clone https://github.com/NeoNethereal/Harvard-Artifact-Explorer.git`
+cd Harvard-Artifact-Explorer
+```
 
 ### Step 2: Install Dependencies
 Navigate to the project directory and install the necessary Python libraries.
 
-`pip install -r requirements.txt`
+```
+pip install -r requirements.txt
+```
 
 ### Step 3: Configure Your Secrets
 - To connect to the database and the Harvard API, you must set up a `secrets.toml` file.
