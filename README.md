@@ -35,3 +35,35 @@ Clone this repository to your local machine:
 Navigate to the project folder:
 
 `cd Harvard-Artifact-Explorer`
+
+### Step 2: Install Dependencies
+Navigate to the project directory and install the necessary Python libraries.
+
+`pip install -r requirements.txt`
+
+### Step 3: Configure Your Secrets
+- To connect to the database and the Harvard API, you must set up a `secrets.toml` file.
+
+- Create a new folder named `.streamlit` in the project's root directory.
+
+- Inside the `.streamlit` folder, create a new file named `secrets.toml`.
+
+- Copy and paste the following content into the file, replacing the placeholder values with your own MySQL credentials.
+
+```
+[mysql]
+host="127.0.0.1"
+user="root"
+password="your_mysql_password"
+database="harvard_artifacts"
+
+[harvard]
+api_key="your_harvard_api_key"
+```
+
+### Step 4: Run the Application
+From the project's root directory, start the Streamlit application using your terminal.
+
+`streamlit run project.py`
+
+The application will automatically open in your default web browser at `http://localhost:8501`.
